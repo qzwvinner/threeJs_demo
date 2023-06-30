@@ -7,12 +7,14 @@ import VisualSortingAlgorithm from "../visualSortingAlgorithm";
 import PeriodicTable from "../periodicTable";
 import GlowingBall from "../glowingBall";
 import { GithubOutlined } from "@ant-design/icons";
+import ThreeDemo1 from "../threeDemo/index";
 
 type TEType =
   | "VisualSortingAlgorithm"
   | "ThreeCuteBrothers"
   | "PeriodicTable"
-  | "GlowingBall";
+  | "GlowingBall"
+  | "_ThreeDemo1";
 
 const Layout = () => {
   const cacheTEType =
@@ -25,13 +27,15 @@ const Layout = () => {
     "ThreeCuteBrothers",
     "PeriodicTable",
     "GlowingBall",
+    "threeDemo",
   ];
-  const tETypeName = ["可视化排序算法", "萌三兄弟", "元素周期表", "发光小球"];
+  const tETypeName = ["可视化排序算法", "萌三兄弟", "元素周期表", "发光小球","threeDemo"];
 
   const _VisualSortingAlgorithm = useMemo(() => <VisualSortingAlgorithm />, []);
   const _ThreeCuteBrothers = useMemo(() => <ThreeCuteBrothers />, []);
   const _PeriodicTable = useMemo(() => <PeriodicTable />, []);
   const _MaterialsVariations = useMemo(() => <GlowingBall />, []);
+  const _ThreeDemo1= useMemo(() => <ThreeDemo1 />, []);
 
   const getComponents = (curTEType: TEType): ReactNode => {
     const components = {
@@ -39,6 +43,7 @@ const Layout = () => {
       ThreeCuteBrothers: _ThreeCuteBrothers,
       PeriodicTable: _PeriodicTable,
       GlowingBall: _MaterialsVariations,
+      _ThreeDemo1: _ThreeDemo1,
     };
     return components[curTEType];
   };
